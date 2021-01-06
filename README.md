@@ -1,25 +1,33 @@
 Golang设计模式思想
 -----
+* 前前言 <br>
+    fork from sevenelevenlee/go-patterns. 修改如下：
+    * 改变目录结构。 分成两大块，面向对象的设计模式和goroutine的组织模式
+    * 面向对象的设计模式中增加和修改设计模式, 并修改了对应的TEST代码(便于同种类型中模式的横向比较)
+    * 面向对象的设计模式中增加应用实例在*_example_test. 方便学习如何在实际中使用。
+    * goroutine 组织模式进行的全新的修改和增加
 * 前言
     *   一切设计模式都是灵活应用struct的组合模式，以及go隐形继承接口的特性
     *   go中的interface就是一些方法装饰, 而struct并不依赖于接口
 
 * 设计模式类型
   
-创建模式
+[创建模式(creational)](./design-pattern/creational)
 ----
-- [建造者模式(Builder Pattern)](./01-builder-patterns)
-    -     将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示
-- [工厂方法模式(Factory Method)](./02-factory-method-patterns)
+- [简单工厂模式(Simple Factory)](./design-pattern/01-creational/01-simple-factory-pattern)
+- [工厂方法模式(Factory Method)](./design-pattern/01-creational/02-factory-method-patterns)
     -     使一个类的实例化延迟到其子类, 定义一个用于创建对象的接口, 让子类决定将哪一个类实例化
+- [抽象工厂模式(Abstract Factory)](./design-pattern/01-creational/03-abstract-factory)
+    -     提供一个创建一系列相关或相互依赖对象的接口, 而无需指定它们具体的类
+- [单例模式(singleton)](./design-pattern/01-creational/04-singleton-pattern)
+    -     保证一个类仅有一个实例, 并提供一个全局的访问接口
+- [建造者模式(Builder Pattern)](./design-pattern/01-creational/05-builder-patterns)
+    -     将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示
+    
 - [对象池模式(Object Pool)](./03-object-pool-pattern)
     -     根据需求将预测的对象保存到channel中， 用于对象的生成成本大于维持成本
-- [单例模式(singleton)](./04-singleton-pattern)
-    -     单例模式是最简单的设计模式之一, 保证一个类仅有一个实例, 并提供一个全局的访问接口
 - [生成器模式(Generator)](./10-generator-pattern)
     -     生成器模式可以允许使用者在生成要使用的下一个值时与生成器并行运行
-- [抽象工厂模式(Abstract Factory)](./11-abstract-factory)
-    -     提供一个创建一系列相关或相互依赖对象的接口, 而无需指定它们具体的类
 - [原型模式(Prototype Pattern)](./16-prototype-pattern)
     -     复制一个已存在的实例
 
