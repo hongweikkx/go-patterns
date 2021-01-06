@@ -23,13 +23,13 @@ Golang设计模式思想
     -     保证一个类仅有一个实例, 并提供一个全局的访问接口
 - [建造者模式(Builder Pattern)](./design-pattern/01-creational/05-builder-patterns)
     -     将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示
+- [原型模式(Prototype Pattern)](./design-pattern/01-creational/06-prototype-pattern)
+    -     复制一个已存在的实例
     
 - [对象池模式(Object Pool)](./03-object-pool-pattern)
     -     根据需求将预测的对象保存到channel中， 用于对象的生成成本大于维持成本
 - [生成器模式(Generator)](./10-generator-pattern)
     -     生成器模式可以允许使用者在生成要使用的下一个值时与生成器并行运行
-- [原型模式(Prototype Pattern)](./16-prototype-pattern)
-    -     复制一个已存在的实例
 
 结构模式
 ----
