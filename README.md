@@ -3,7 +3,7 @@ Golang设计模式思想
 * 前前言 <br>
     fork from sevenelevenlee/go-patterns. 修改如下：
     * 改变目录结构。 分成两大块，面向对象的设计模式和goroutine的组织模式
-    * 面向对象的设计模式中增加和修改设计模式, 并修改了对应的TEST代码(便于同种类型中模式的横向比较)
+    * 面向对象的设计模式中增删改设计模式, 并修改了对应的TEST代码(便于同种类型中模式的横向比较)
     * 面向对象的设计模式中增加应用实例在*_example_test. 方便学习如何在实际中使用。
     * goroutine 组织模式进行的全新的修改和增加
 * 前言
@@ -12,7 +12,7 @@ Golang设计模式思想
 
 * 设计模式类型
   
-[创建模式(creational)](./design-pattern/creational)
+[创建模式(creational)](./design-pattern/01-creational)
 ----
 - [简单工厂模式(Simple Factory)](./design-pattern/01-creational/01-simple-factory-pattern)
 - [工厂方法模式(Factory Method)](./design-pattern/01-creational/02-factory-method-patterns)
@@ -24,29 +24,26 @@ Golang设计模式思想
 - [建造者模式(Builder Pattern)](./design-pattern/01-creational/05-builder-patterns)
     -     将一个复杂对象的构建与它的表示分离, 使得同样的构建过程可以创建不同的表示
 - [原型模式(Prototype Pattern)](./design-pattern/01-creational/06-prototype-pattern)
-    -     复制一个已存在的实例
+    -     也叫生成器模式,复制一个已存在的实例
     
-- [对象池模式(Object Pool)](./03-object-pool-pattern)
-    -     根据需求将预测的对象保存到channel中， 用于对象的生成成本大于维持成本
-- [生成器模式(Generator)](./10-generator-pattern)
-    -     生成器模式可以允许使用者在生成要使用的下一个值时与生成器并行运行
-
-结构模式
+[结构模式](./design-pattern/02-structural)
 ----
-- [装饰模式(Decorator Pattern)](./05-decorator-pattern)
+- [装饰模式(Decorator Pattern)](./design-pattern/02-structural/01-decorator-pattern)
     -     装饰模式使用对象组合的方式动态改变或增加对象行为， 在原对象的基础上增加功能
-- [代理模式(Proxy Pattern)](./06-proxy-pattern)
-    -     代理模式用于延迟处理操作或者在进行实际操作前后对真实对象进行其它处理。
-- [适配器模式(Adapter Pattern)](./12-adapter-pattern)
+- [适配器模式(Adapter Pattern)](./design-pattern/02-structural/02-adapter-pattern)
     -     将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作
+- [桥接模式(Bridge Pattern)](./design-pattern/02-structural/03-bridge-pattern)
+    -     桥接模式分离抽象部分和实现部分，使得两部分可以独立扩展
+    
+    
 - [组合模式(Composite)](./13-composite-pattern)
     -     组合模式有助于表达数据结构, 将对象组合成树形结构以表示"部分-整体"的层次结构, 常用于树状的结构
+- [代理模式(Proxy Pattern)](./06-proxy-pattern)
+    -     代理模式用于延迟处理操作或者在进行实际操作前后对真实对象进行其它处理。
 - [享元模式(Flyweight Pattern)](./17-flyweight-pattern)
     -     把多个实例对象共同需要的数据，独立出一个享元，从而减少对象数量和节省内存
 - [外观模式(Facade Pattern)](./19-facade-pattern)
     -     外观模式在客户端和现有系统之间加入一个外观对象, 为子系统提供一个统一的接入接口, 类似与委托
-- [桥接模式(Bridge Pattern)](./21-bridge-pattern)
-    -     桥接模式分离抽象部分和实现部分，使得两部分可以独立扩展
     
 行为模式
 ----
