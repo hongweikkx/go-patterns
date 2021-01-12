@@ -1,19 +1,30 @@
 package flyweight
 
 import (
-	"fmt"
 	"testing"
 )
 
-func TestShapeFactory_GetCircle(t *testing.T) {
-	shapeF := new(ShapeFactory)
-	shape := shapeF.GetCircle("red")
-	if _, ok := shapeF.circleMap["red"]; !ok {
-		t.Error("map为空， 期待为1")
+func TestFlyweight(t *testing.T) {
+	extrinsicstate := 22
+	fac := NewFlyweightFactory()
+	fx := fac.GetFlyweight("X")
+	extrinsicstate--
+	x := fx.Operation(extrinsicstate)
+	if x != "concrete:21" {
+		t.Error("test flyweight error")
 	}
-	circle := shape.(*Circle)
-	fmt.Println(circle.color)
-	if circle.color != "red" {
-		t.Error("expected color is red")
+
+	fy := fac.GetFlyweight("Y")
+	extrinsicstate--
+	y := fy.Operation(extrinsicstate)
+	if y != "concrete:20" {
+		t.Error("test flyweight error")
+	}
+
+	uf := NewUnsharedConcreteFlyweight()
+	extrinsicstate--
+	u := uf.Operation(extrinsicstate)
+	if u != "unshared:19" {
+		t.Error("test flyweight error")
 	}
 }

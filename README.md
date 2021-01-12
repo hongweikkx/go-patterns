@@ -36,13 +36,11 @@ Golang设计模式思想
     -     桥接模式分离抽象部分和实现部分，使得两部分可以独立扩展
 - [组合模式(Composite)](./design-pattern/02-structural/04-composite-pattern)
     -     组合模式有助于表达数据结构, 将对象组合成树形结构以表示"部分-整体"的层次结构, 常用于树状的结构
-    
-    
-- [享元模式(Flyweight Pattern)](./17-flyweight-pattern)
+- [享元模式(Flyweight Pattern)](./design-pattern/02-structural/05-flyweight-pattern)
     -     把多个实例对象共同需要的数据，独立出一个享元，从而减少对象数量和节省内存
-- [代理模式(Proxy Pattern)](./06-proxy-pattern)
+- [代理模式(Proxy Pattern)](./design-pattern/02-structural/06-proxy-pattern)
     -     代理模式用于延迟处理操作或者在进行实际操作前后对真实对象进行其它处理。
-- [外观模式(Facade Pattern)](./19-facade-pattern)
+- [外观模式(Facade Pattern)](./design-pattern/02-structural/07-facade-pattern)
     -     外观模式在客户端和现有系统之间加入一个外观对象, 为子系统提供一个统一的接入接口, 类似与委托
     
 行为模式

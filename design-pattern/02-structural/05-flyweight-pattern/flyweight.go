@@ -1,46 +1,48 @@
 package flyweight
 
-/*
-	享元模式核心是创建一个map属性的结构体
-	设计思想:
-		1. 创建Shape接口
-		2. 创建实现接口Shape的实体struct Circle
-		3. 创建ShapeFactory, 属性为Circle的map
-*/
-//创建shape接口
-type Shape interface {
-	SetRadius(radius int)
-	SetColor(color string)
-}
-//创建circle,实现shape方法
-type Circle struct {
-	color string
-	radius int
+import "fmt"
+
+type Flyweight interface {
+	Operation(int) string
 }
 
-func (c *Circle) SetRadius(radius int) {
-	c.radius = radius
+type ConcreteFlyweight struct {
 }
 
-func (c *Circle) SetColor(color string) {
-	c.color = color
+// 增加内部存储空间
+func NewConcreteFlyweight() *ConcreteFlyweight {
+	return &ConcreteFlyweight{}
+}
+func (con *ConcreteFlyweight) Operation(i int) string {
+	return fmt.Sprint("concrete:", i)
 }
 
-//创建ShapeFactory
-type ShapeFactory struct {
-	circleMap map[string]Shape
+func NewUnsharedConcreteFlyweight() *UnsharedConcreteFlyweight {
+	return &UnsharedConcreteFlyweight{}
 }
 
-//GetCircle 对象不存在则创建
-func (sh *ShapeFactory) GetCircle(color string) Shape {
-	if sh.circleMap == nil {
-		sh.circleMap = make(map[string]Shape)
+type UnsharedConcreteFlyweight struct{}
+
+func (unshared *UnsharedConcreteFlyweight) Operation(i int) string {
+	return fmt.Sprint("unshared:", i)
+}
+
+// 享元工厂, 用于创建并且管理Flyweight状态
+type FlyweightFactory struct {
+	Flyweights map[string]Flyweight
+}
+
+func NewFlyweightFactory() *FlyweightFactory {
+	flyweights := map[string]Flyweight{}
+	flyweights["X"] = NewConcreteFlyweight()
+	flyweights["Y"] = NewConcreteFlyweight()
+	flyweights["Z"] = NewConcreteFlyweight()
+	return &FlyweightFactory{Flyweights: flyweights}
+}
+
+func (fac *FlyweightFactory) GetFlyweight(key string) Flyweight {
+	if v, ok := fac.Flyweights[key]; ok {
+		return v
 	}
-	if shape, ok := sh.circleMap[color]; ok {
-		return shape
-	}
-	circle := new(Circle)
-	circle.SetColor(color)
-	sh.circleMap[color] = circle
-	return circle
+	return nil
 }
