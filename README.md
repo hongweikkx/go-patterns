@@ -45,22 +45,24 @@ Golang设计模式思想
     
 行为模式
 ----
-- [观察者模式(Observer)](./07-observer-pattern)
+- [观察者模式(Observer)](./design-pattern/03-behavioural/01-observer-pattern)
     -     定义对象间的一种一对多的依赖关系,以便当一个对象的状态发生改变时,所有依赖于它的对象都得到通知并自动刷新
-- [策略模式(Strategy)](./08-strategy-pattern)
+- [策略模式(Strategy)](./design-pattern/03-behavioural/02-strategy-pattern)
     -     定义一系列算法，让这些算法在运行时可以互换，使得分离算法，符合开闭原则
-- [状态模式(State Pattern)](./14-state-pattern)
+- [状态模式(State Pattern)](./design-pattern/03-behavioural/03-state-pattern)
     -     用于系统中复杂对象的状态转换以及不同状态下行为的封装问题
-- [访问者模式(Visitor Pattern)](./15-visitor-pattern)
+- [访问者模式(Visitor Pattern)](./design-pattern/03-behavioural/04-visitor-pattern)
     -     访问者模式是将对象的数据和操作分离
-- [模板方法模式(Template Method Pattern)](./20-template-method-pattern)
+- [模板方法模式(Template Method Pattern)](./design-pattern/03-behavioural/05-template-method-pattern)
     -     模版方法使用匿名组合的继承机制, 将通用的方法和属性放在父类中, 具体的实现放在子类中延迟执行
-- [备忘录模式(Memento Pattern)](./24-memento-pattern)
+- [备忘录模式(Memento Pattern)](./design-pattern/03-behavioural/06-memento-pattern)
     -     备忘录模式捕获一个对象的内部状态，并在对象之外保存这个状态
-- [中介模式(Mediator Pattern)](./25-mediator-pattern)
+- [中介模式(Mediator Pattern)](./design-pattern/03-behavioural/07-mediator-pattern)
     -     中介者模式用一个中介对象来封装一系列对象交互，将多对多关联转换成一对多，构成星状结构
-- [迭代器模式(Iterator Pattern)](./18-iterator-pattern)
+- [迭代器模式(Iterator Pattern)](./design-pattern/03-behavioural/08-iterator-pattern)
     -     可以配合访问者模式，将不同的数据结构，使用迭代器遍历
+    
+    
 - [解释器模式(Interpreter Pattern)](./26-interpreter-pattern)
     -     解释器模式实现一个表达式接口，该接口解释一个特定的上下文。通常用于SQL解析和符号处理引擎
 - [命令模式(Command Pattern)](./23-command-pattern)

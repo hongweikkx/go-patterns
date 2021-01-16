@@ -1,7 +1,5 @@
 package iterator
 
-import "fmt"
-
 /*
 	设计思想：
 		1. Iterator结构体
@@ -16,7 +14,6 @@ type Iterator struct {
 }
 
 func (i *Iterator) Next() Visitor {
-	fmt.Println(i.index)
 	visitor := i.list[i.index]
 	i.index += 1
 	return visitor
@@ -44,28 +41,29 @@ func (c *Container) Remove(index int) {
 	}
 	c.list = append(c.list[:index], c.list[index+1:]...)
 }
+
 //创建Visitor接口
 type Visitor interface {
-	Visit()
+	Visit() string
 }
 
 //创建具体的visitor对象
-type Teacher struct {}
+type Teacher struct{}
 
-type Analysis struct {}
+type Analysis struct{}
 
-func (t *Teacher) Visit() {
-	fmt.Println("this is teacher visitor")
+func (t *Teacher) Visit() string {
+	return "teacher"
 }
 
-func (a *Analysis) Visit() {
-	fmt.Println("this is analysis visitor")
+func (a *Analysis) Visit() string {
+	return "analysis"
 }
 
 //工厂方法创建迭代器
 func NewIterator() *Iterator {
 	return &Iterator{
-		index: 0,
+		index:     0,
 		Container: Container{},
 	}
 }

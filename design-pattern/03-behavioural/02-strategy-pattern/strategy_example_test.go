@@ -1,11 +1,14 @@
 package strategy
 
+import (
+	"testing"
+)
+
 /*
 	设计思想：
 		1. 一个Operator接口
 		2. 属性为Operator接口的struct
 		3. 实现结构体的自身的方法
-		4. 封装算法到实现接口Operator具体的struct中
 */
 
 type Operator interface {
@@ -22,14 +25,14 @@ func (op *Operation) Operate(left, right int) int {
 }
 
 //Addition struct inherit Operator
-type Addition struct {}
+type Addition struct{}
 
 func (add *Addition) Apply(left, right int) int {
 	return left + right
 }
 
 //Multiplication struct
-type Multiplication struct {}
+type Multiplication struct{}
 
 func (mu *Multiplication) Apply(left, right int) int {
 	return left * right
@@ -37,4 +40,22 @@ func (mu *Multiplication) Apply(left, right int) int {
 
 func CreateOpration(operator Operator) Operation {
 	return Operation{operator}
+}
+
+func TestAddition_Apply(t *testing.T) {
+	add := new(Addition)
+	operator := CreateOpration(add)
+	value := operator.Operate(1, 2)
+	if value != 3 {
+		t.Error("add algorithm error, expected result is 3")
+	}
+}
+
+func TestMultiplication_Apply(t *testing.T) {
+	multi := new(Multiplication)
+	operator := CreateOpration(multi)
+	value := operator.Operate(2, 3)
+	if value != 6 {
+		t.Error("multi algorithm error, expected result is 6")
+	}
 }

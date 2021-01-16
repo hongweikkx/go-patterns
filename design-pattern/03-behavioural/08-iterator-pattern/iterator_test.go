@@ -12,7 +12,12 @@ func TestIterator_Next(t *testing.T) {
 	if len(iterator.list) != 2 {
 		t.Error("期望的count is 2")
 	}
-	for ; iterator.HasNext(); {
-		iterator.Next().Visit()
+	ret := "start"
+	for iterator.HasNext() {
+		ret += "->"
+		ret += iterator.Next().Visit()
+	}
+	if ret != "start->teacher->analysis" {
+		t.Error("test error")
 	}
 }
