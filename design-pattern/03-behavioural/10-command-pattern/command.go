@@ -1,6 +1,9 @@
 package command
 
-import "fmt"
+var (
+	kind TYPE = "a"
+	mold TYPE = "b"
+)
 
 /*
 	命令模式是一种数据驱动模式，将请求封装成一个对象，从而可以用不同的请求对客户进行参数化，实现调用者和接收者的解藕
@@ -14,43 +17,45 @@ import "fmt"
 */
 /*创建Receiver, 这里使用接口，为了实现多个receiver。(可以创建Receiver struct)*/
 type Receiver interface {
-	Execute()
+	Execute() string
 }
+
 //创建具体的接收者，实现接口方法
 type ReceiverA struct {
-
 }
-func (a *ReceiverA) Execute() {
-	fmt.Println("接收者A处理请求")
+
+func (a *ReceiverA) Execute() string {
+	return "A action"
 }
 
 type ReceiverB struct {
-
-}
-func (b *ReceiverB) Execute() {
-	fmt.Println("接收者B处理请求")
 }
 
+func (b *ReceiverB) Execute() string {
+	return "B action"
+}
 
 /*创建Command接口*/
 type Command interface {
-	Call()
+	Call() string
 }
+
 //创建具体command struct
 type ConcreteCommandA struct {
 	Receiver
 }
-func (ca *ConcreteCommandA) Call() {
-	ca.Receiver.Execute()
+
+func (ca *ConcreteCommandA) Call() string {
+	return ca.Receiver.Execute()
 }
 
 type ConcreteCommandB struct {
 	Receiver
 }
-func (cb *ConcreteCommandB) Call() {
-	cb.Receiver.Execute()
-}
 
+func (cb *ConcreteCommandB) Call() string {
+	return cb.Receiver.Execute()
+}
 
 /*创建调用者， 实现添加，执行命令*/
 type Invoker struct {
@@ -64,13 +69,15 @@ func (in *Invoker) AddCommand(c Command) {
 	in.list = append(in.list, c)
 }
 
-func (in *Invoker) ExecuteCommand() {
-	if in  == nil || len(in.list) == 0 {
-		return
+func (in *Invoker) ExecuteCommand() string {
+	if in == nil || len(in.list) == 0 {
+		return ""
 	}
+	ret := ""
 	for _, item := range in.list {
-		item.Call()
+		ret += "->" + item.Call()
 	}
+	return ret
 }
 
 //使用工厂方法模式来创建ConcreteCommand
@@ -80,6 +87,7 @@ const (
 	Acommand TYPE = "a"
 	Bcommand TYPE = "b"
 )
+
 func CreateCommand(kind TYPE, receiver Receiver) Command {
 	switch kind {
 	case Acommand:
