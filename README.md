@@ -68,7 +68,7 @@ Golang设计模式思想
 - [责任链模式(Chain of Responsibility)](./design-pattern/03-behavioural/11-chain-of-responsibility-pattern)
     -     责任链模式是将处理请求的多个对象连成一条链(类似队列)，每个对象都包含下一个对象的引用，请求沿着链传递，直到被处理
 
-* [goroutine 模式](./goroutine_pattern)
+* [Goroutine 模式](https://github.com/hongweikkx/goroutine_pattern)
 
 ----
 附录(设计模式彩图)
