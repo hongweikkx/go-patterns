@@ -10,7 +10,7 @@ Golang设计模式思想
     *   一切设计模式都是灵活应用struct的组合模式，以及go隐形继承接口的特性
     *   go中的interface就是一些方法装饰, 而struct并不依赖于接口
 
-* 设计模式类型
+* [设计模式类型](./design-pattern)
   
 [创建模式(creational)](./design-pattern/01-creational)
 ----
@@ -43,7 +43,7 @@ Golang设计模式思想
 - [外观模式(Facade Pattern)](./design-pattern/02-structural/07-facade-pattern)
     -     外观模式在客户端和现有系统之间加入一个外观对象, 为子系统提供一个统一的接入接口, 类似与委托
     
-行为模式
+[行为模式](./design-pattern/03-behavioural)
 ----
 - [观察者模式(Observer)](./design-pattern/03-behavioural/01-observer-pattern)
     -     定义对象间的一种一对多的依赖关系,以便当一个对象的状态发生改变时,所有依赖于它的对象都得到通知并自动刷新
@@ -68,12 +68,9 @@ Golang设计模式思想
 - [责任链模式(Chain of Responsibility)](./design-pattern/03-behavioural/11-chain-of-responsibility-pattern)
     -     责任链模式是将处理请求的多个对象连成一条链(类似队列)，每个对象都包含下一个对象的引用，请求沿着链传递，直到被处理
 
-同步模式(synchronization patterns)
+* [goroutine 模式](./goroutine_pattern)
+
 ----
-- [信号量模式(Semaphore)](./09-semaphore-pattern)
-    -       信号量是一种同步模式，对有限数量的资源同步互斥
-- [发布订阅模式(publish-subscribe)](./27-publish-and-subscribe)
-    -       有别于传统的生产者消费者，pubsub模型将消费发布给一个主题
 附录(设计模式彩图)
 -
    ![设计模式彩图](./go-design-image.jpg)
